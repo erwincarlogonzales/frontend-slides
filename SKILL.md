@@ -64,6 +64,67 @@ Baseline limits still apply: no scrolling, no overflow, no overlapping panels, a
 
 ---
 
+## McKinsey Framework Mode
+
+Activates when the user selects "McKinsey" in Phase 1 Q5, or explicitly says "use McKinsey structure / framework / style." Can be combined with any mode (new deck, PPT conversion, enhancement).
+
+When active, this mode overrides certain defaults in Phase 1 and Phase 3, and adds a pre-flight checklist before delivery.
+
+### The 6 Rules
+
+Apply these to every slide when McKinsey mode is active:
+
+1. **Start with the insight** — Before designing a slide, define the single key takeaway it must land. Every layout and visual choice serves that takeaway.
+2. **Action title = so-what, not a label** — The slide headline must state the implication, not describe the content.
+   - ❌ "AI Risk Landscape" → ✅ "Inaccuracy and cyber risk are outpacing organizations' ability to mitigate them"
+3. **4 canonical layouts only** — These cover 95% of all slides. Do not invent others:
+   - **Single chart** — One data visual fills the body, action title above, source footer below
+   - **Chart + text** — Chart on one side, annotated key points on the other
+   - **Panel** — 2–4 equal-width columns, each with a label, stat or icon, and brief text
+   - **Table** — Structured rows/columns for comparisons, matrices, or step lists
+4. **Chart choice = insight type:**
+   - Comparison → bar chart, side-by-side panels
+   - Relationship → scatter, connected panels
+   - Composition → stacked bar, CSS donut rings
+   - Distribution → histogram-style bars, ranked lists
+5. **Vertical flow check** — After building each slide, verify: does the body data directly and fully support the action title? If not, find the missing evidence or rewrite the title.
+6. **5-second rule** — A viewer who glances at the slide for 5 seconds should immediately understand the message. If it requires reading to understand, simplify.
+
+### Deck Narrative Structure
+
+**Option A — Pyramid Principle** (Barbara Minto):
+Conclusion stated upfront → Supporting arguments → Evidence
+Deck order: Title → Executive Summary → Conclusion → Arguments → Evidence → Next Steps
+
+**Option B — SCR Narrative** (Situation → Complication → Resolution):
+Situation (what is true today) → Complication (what changed / the problem) → Resolution (recommendation)
+Deck order: Title → Situation → Complication → Resolution → Next Steps
+
+### MECE Content Check
+
+Before building slides, organize the content so that:
+- Each supporting argument is **Mutually Exclusive** — no overlap between points
+- Together they are **Collectively Exhaustive** — no critical gap in the argument
+
+If the user's content has overlaps or gaps, flag them and propose a reorganized structure before building.
+
+### Required Slide: Executive Summary
+
+Second slide (after title) must:
+- State the key finding or recommendation in 2–3 sentences
+- List 3–5 supporting points as short phrases
+- Be self-contained — a time-pressed exec who reads only this slide has the full picture
+- Use reading-first layout regardless of overall deck density
+
+### Required Slide Anatomy
+
+Every body slide must have exactly three zones:
+1. **Action Title** (top) — the so-what, 1 sentence max
+2. **Body** — one of the 4 canonical layouts with supporting data/visuals
+3. **Source Footer** (bottom-left) — citation, date, or "Source: [X]" in small gray text
+
+---
+
 ## Phase 0: Detect Mode
 
 Determine what the user wants:
@@ -104,6 +165,13 @@ How dense should the deck feel? Options:
 
 - "Low density / speaker-led" — Big ideas, fewer words, more visual breathing room
 - "High density / reading-first" — More self-contained detail for async reading
+
+**Question 5 — Structure** (header: "Structure"):
+How should the deck be structured? Options:
+- Standard (skill decides structure based on content and purpose)
+- McKinsey (Pyramid or SCR spine, action titles, exec summary, MECE check)
+
+If the user selects McKinsey, activate **McKinsey Framework Mode** (see section below). Ask which narrative spine they prefer — Pyramid Principle or SCR — or default to SCR for pitches and Pyramid for reports.
 
 **Do not ask about inline editing during Phase 1.** Users should not have to choose editing behavior before seeing a draft. Inline editing is a post-draft affordance: include it by default unless the user explicitly asks for a locked/export-only file.
 
@@ -244,6 +312,56 @@ If the user selected a self-generated custom wildcard, treat that preview's CSS 
 - Use fonts from Fontshare or Google Fonts — never system fonts
 - Add detailed comments explaining each section
 - Every section needs a clear `/* === SECTION NAME === */` comment block
+
+### Consulting Slide Patterns (McKinsey mode)
+
+Use these layouts as your vocabulary when McKinsey mode is active. Mix and match per content needs:
+
+**Title Slide** — Full-bleed design, deck title prominent, subtitle, date/client. Optional: 2–3 key stats in a right panel to anchor the narrative.
+
+**Agenda / Overview** — 3–4 section cards with brief descriptions, numbered clearly.
+
+**Section Header** — Full-bleed, large section title, brief description, insight count. Creates pacing and orientation.
+
+**Big Stat** — One number dominates the slide (100–160px font size), short label below, brief context text. Use when a single number makes the point.
+
+**Insight Slide** — Headline states the so-what (not the topic), supporting body text or 2–4 bullets, one stat callout or evidence box alongside.
+
+**Comparison / vs. Panel** — Side-by-side layout with clear contrast. Use for before/after, option A vs B, leader vs laggard.
+
+**Data Grid** — 2×2 or 3×3 grid of cards. Each card: big number + short label + 1-line context.
+
+**Bar / Progress Chart** — CSS-only horizontal bars, always labeled with values and category names. Top bar highlighted differently.
+
+**Framework / Matrix** — 2×2 matrix or 3-column framework using CSS grid. For strategic frameworks, recommendations, or categorization.
+
+**Quote Slide** — Large pull quote, attribution, subtle visual treatment. Use sparingly for high-impact statements.
+
+**Next Steps / Ask** — 3-column grid: immediate / near-term / long-term, or numbered list with owners and timelines.
+
+**Closing Slide** — Mirror title slide design. Restate the key message or call to action.
+
+### Headline Writing Rule (McKinsey mode)
+
+Slide headlines must state the **conclusion**, not the topic:
+
+❌ `"AI Risk Landscape"` → ✅ `"Inaccuracy and cybersecurity risk are outpacing organizations' ability to mitigate them"`
+
+❌ `"Investment Impact"` → ✅ `"Organizations investing $25M+ are far more likely to see EBIT impact above 5%"`
+
+### McKinsey Pre-Flight Checklist
+
+Before delivering when McKinsey mode is active, verify each slide:
+
+- [ ] Action title states conclusion, not topic
+- [ ] Body directly supports the action title (vertical flow)
+- [ ] Layout is one of the 4 canonical types
+- [ ] 5-second rule: message is immediately clear
+- [ ] No slide has more than 1 central idea
+- [ ] Source footer present on all data slides
+- [ ] Executive Summary is complete and self-contained
+
+If any slide fails a check → fix it before delivering.
 
 ---
 
